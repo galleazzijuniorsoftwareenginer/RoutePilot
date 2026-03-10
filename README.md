@@ -133,7 +133,8 @@ Payload:
   "start_lng": -118.2437,
   "end_lat": 34.0611,
   "end_lng": -118.3089
-  System Architecture
+  
+ SYSTEMS ARCHITECTURE
 
 RoutePilot follows a modular backend architecture designed to keep the application scalable, maintainable, and easy to extend.
 
@@ -157,7 +158,10 @@ Client (Frontend / Map App)
             │
             ▼
         SQLite Database
-Architecture Layers
+
+        
+ARCHITECTURE LAYERS
+
 API Layer (FastAPI)
 
 Responsible for:
@@ -262,6 +266,7 @@ containerization with Docker
 
 deployment to cloud infrastructure
 }
+
 📈 Future Improvements
 
 Planned features:
