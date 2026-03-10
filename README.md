@@ -133,6 +133,134 @@ Payload:
   "start_lng": -118.2437,
   "end_lat": 34.0611,
   "end_lng": -118.3089
+  System Architecture
+
+RoutePilot follows a modular backend architecture designed to keep the application scalable, maintainable, and easy to extend.
+
+The system is organized into logical layers separating API handling, business logic, and data persistence.
+
+Client (Frontend / Map App)
+            │
+            │ HTTP Requests
+            ▼
+        FastAPI API Layer
+            │
+            │
+            ▼
+        Service Layer
+     (Business Logic)
+            │
+            │
+            ▼
+        Data Layer
+     (SQLAlchemy ORM)
+            │
+            ▼
+        SQLite Database
+Architecture Layers
+API Layer (FastAPI)
+
+Responsible for:
+
+handling HTTP requests
+
+validating request data
+
+exposing REST endpoints
+
+returning JSON responses
+
+Main entry point:
+
+main.py
+Service Layer
+
+This layer contains the business logic of the application.
+
+Responsibilities:
+
+route calculations
+
+distance computation
+
+route statistics
+
+processing data before database storage
+
+Files:
+
+services/
+
+Example:
+
+route_stats_services.py
+Data Layer
+
+Handles persistence and database interaction using SQLAlchemy.
+
+Responsibilities:
+
+database models
+
+queries
+
+object-relational mapping
+
+Files:
+
+models/
+database.py
+Database
+
+Currently the system uses:
+
+SQLite
+
+Reasons:
+
+simple setup
+
+lightweight
+
+ideal for development and prototyping
+
+Future production versions could migrate to:
+
+PostgreSQL
+
+MySQL
+
+Request Flow
+
+Example request lifecycle:
+
+Client → FastAPI Endpoint → Service Layer → Database → Response
+
+Example:
+
+POST /route
+
+Client sends coordinates
+
+FastAPI validates input
+
+Service calculates route
+
+Database stores route data
+
+API returns result
+
+Scalability Considerations
+
+The architecture allows future improvements such as:
+
+adding a caching layer (Redis)
+
+integrating external routing APIs
+
+containerization with Docker
+
+deployment to cloud infrastructure
 }
 📈 Future Improvements
 
